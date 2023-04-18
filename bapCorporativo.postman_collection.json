@@ -1,0 +1,172 @@
+{
+	"info": {
+		"_postman_id": "cd4e3418-e049-4c22-ad8c-b0a6a0a3b6c1",
+		"name": "bapCorporativo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12532332"
+	},
+	"item": [
+		{
+			"name": "Crear usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Alfonso\",\r\n    \"email\": \"alfonso14@localhost.com\",\r\n    \"pass\": \"123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/usuarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"usuarios"
+					]
+				},
+				"description": "devuelve la informacion del usuario con id"
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Tarea",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titulo\": \"terminar endpoints\",\r\n    \"descripcion\": \"con express\",\r\n    \"completado\": \"true\",\r\n    \"fechaEntrega\": \"2023-04-18\",\r\n    \"comentario\": \"no esta tan complicado\",\r\n    \"responsable\": \"yo mismo\",\r\n    \"usuarioId\": \"11\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/tareas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"tareas"
+					]
+				},
+				"description": "aparte de los campos obligatorios especificados en el documento de requerimientos, se debe incluir un campo \"usuarioId\" con el id del usuario creado para relacionar correctamente las tareas al usuario"
+			},
+			"response": []
+		},
+		{
+			"name": "Ver mis tareas",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "usuarioId",
+						"value": "9",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/tareas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"tareas"
+					]
+				},
+				"description": "consulta las tareas relacionadas a un usuario. se debe mandar un header \"usuarioId\" con el id del usuario"
+			},
+			"response": []
+		},
+		{
+			"name": "Ver una Tarea",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/tareas/8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"tareas",
+						"8"
+					]
+				},
+				"description": "consulta una unica tarea por id de la url y muestra el usuario al cual pertenece esa tarea"
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar una tarea",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"descripcion\": \"con sequelize y express\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/tareas/8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"tareas",
+						"8"
+					]
+				},
+				"description": "se puede actualizar cualquier campo excepto el usuarioId al cual pertenece"
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar tarea",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/tareas/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"tareas",
+						"6"
+					]
+				},
+				"description": "borrado fisico de una unica tarea"
+			},
+			"response": []
+		}
+	]
+}
